@@ -3,9 +3,9 @@
 <div align="center">
   <img src="./static/logo.jpg" width="30%" alt="Logo Moko"><br>
   <a href="#"><img alt="MokoGo" src="https://img.shields.io/badge/MokoGo-blue?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a><br>
-  <a href="https://github.com/GuaAbuzz/MokoGo/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/GuaAbuzz/MokoGo?style=flat-square"></a>
-  <a href="https://github.com/GuaAbuzz/MokoGo/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/GuaAbuzz/MokoGo?style=flat-square"></a>
-  <a href="https://github.com/GuaAbuzz/MokoGo/watchers"><img alt="Watchers" src="https://img.shields.io/github/watchers/GuaAbuzz/MokoGo?style=flat-square"></a>
+  <a href="https://github.com/Abuzzpoet/MokoGo/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Abuzzpoet/MokoGo?style=flat-square"></a>
+  <a href="https://github.com/Abuzzpoet/MokoGo/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/Abuzzpoet/MokoGo?style=flat-square"></a>
+  <a href="https://github.com/Abuzzpoet/MokoGo/watchers"><img alt="Watchers" src="https://img.shields.io/github/watchers/Abuzzpoet/MokoGo?style=flat-square"></a>
 </div>
 
 <br><br>
@@ -48,7 +48,7 @@ Jika Anda ingin berkontribusi pada pengembangan bot ini, berikut adalah langkah-
 - Buat pull request.
 
 ## Thanks To
-[GuaAbuzz](https://github.com/Abuzzpoet/MokoGo)
+[Abuzzpoet](https://github.com/Abuzzpoet/MokoGo)
 [Fckvania](https://github.com/fckvania/MaoGo)
 
 ## Lisensi
