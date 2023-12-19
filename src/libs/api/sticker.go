@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"mao/src/typings"
+	"moko/src/typings"
 	"net/http"
 	"strings"
 )
