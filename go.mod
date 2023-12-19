@@ -1,6 +1,6 @@
 module mao
 
-go 1.17
+go 1.20
 
 require (
 	github.com/Pauloo27/searchtube v0.0.0-20220521202404-f65e288832a0
