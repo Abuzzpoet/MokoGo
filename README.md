@@ -49,6 +49,7 @@ Jika Anda ingin berkontribusi pada pengembangan bot ini, berikut adalah langkah-
 
 ## Thanks To
 [Abuzzpoet](https://github.com/Abuzzpoet/MokoGo)
+
 [Fckvania](https://github.com/fckvania/MaoGo)
 
 ## Lisensi
