@@ -1,6 +1,6 @@
 
 modules = ["go"]
-run = "go run src/mao.go"
+run = "go run src/moko.go"
 
 [nix]
 channel = "stable-23_05"
@@ -9,6 +9,6 @@ channel = "stable-23_05"
 requiredFiles = [".replit"]
 
 [deployment]
-run = ["sh", "-c", "go run src/mao.go"]
+run = ["sh", "-c", "go run src/moko.go"]
 ignorePorts = false
 deploymentTarget = "gce"
