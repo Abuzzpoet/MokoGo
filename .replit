@@ -1,0 +1,14 @@
+
+modules = ["go"]
+run = "go run src/mao.go"
+
+[nix]
+channel = "stable-23_05"
+
+[gitHubImport]
+requiredFiles = [".replit"]
+
+[deployment]
+run = ["sh", "-c", "go run src/mao.go"]
+ignorePorts = false
+deploymentTarget = "gce"
