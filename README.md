@@ -48,8 +48,8 @@ Jika Anda ingin berkontribusi pada pengembangan bot ini, berikut adalah langkah-
 - Buat pull request.
 
 ## Thanks To
-[Abuzzpoet](https://github.com/Abuzzpoet/MokoGo)
-[Fckvania](https://github.com/fckvania/MaoGo)
+- [Abuzzpoet](https://github.com/Abuzzpoet/MokoGo)
+- [Fckvania](https://github.com/fckvania/MaoGo)
 
 ## Lisensi
 
