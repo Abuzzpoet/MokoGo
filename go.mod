@@ -1,4 +1,4 @@
-module mao
+module moko
 
 go 1.20
 
