@@ -26,7 +26,7 @@ func Get(c *NewClientImpl, m *IMessage) {
 			cmd.After(c, m)
 		}
 		re := regexp.MustCompile(`^` + cmd.Name + `$`)
-		if reg := len(re.FindAllString(strings.ReplaceAll(m.Command, prefix, ""), -1)) > 0; reg {
+		if valid := len(re.FindAllString(strings.ReplaceAll(m.Command, prefix, ""), -1)) > 0; valid {
 			var cmdWithPref bool
 			var cmdWithoutPref bool
 			if cmd.IsPrefix && (prefix != "" && strings.HasPrefix(m.Command, prefix)) {
@@ -45,7 +45,7 @@ func Get(c *NewClientImpl, m *IMessage) {
 				continue
 			}
 
-			//Checking
+            //Checking
 			if cmd.IsOwner && !m.IsOwner {
 			    m.Reply("Command Khusus Owner 😎")
 				continue
@@ -63,6 +63,11 @@ func Get(c *NewClientImpl, m *IMessage) {
 
 			if cmd.IsGroup && !m.IsGroup {
 				m.Reply("Hanya Khusus Group 👥")
+				continue
+			}
+			
+			if cmd.IsPrivate && m.IsGroup {
+				m.Reply("Hanya Khusus Private ")
 				continue
 			}
 

@@ -22,6 +22,7 @@ type ICommand struct {
 	IsGroup     bool
 	IsAdmin     bool
 	IsWaitt     bool
+	IsPrivate   bool
 	After       func(client *NewClientImpl, m *IMessage)
 	Exec        func(client *NewClientImpl, m *IMessage)
 }
@@ -46,5 +47,5 @@ type IMessage struct {
 	Media           whatsmeow.DownloadableMessage
 	ID              *waProto.ContextInfo
 	QuotedMsg       *waProto.ContextInfo
-	Reply           func(text string)
+	Reply           func(text string, opts ...whatsmeow.SendRequestExtra) (whatsmeow.SendResponse, error)
 }

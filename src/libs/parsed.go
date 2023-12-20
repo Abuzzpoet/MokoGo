@@ -15,10 +15,8 @@ func NewSmsg(mess *events.Message, sock *NewClientImpl) *IMessage {
 	var media whatsmeow.DownloadableMessage
 	var isOwner = false
 	var owner []string
-	botNum, _ := sock.ParseJID(sock.WA.Store.ID.User)
 	quotedMsg := mess.Message.GetExtendedTextMessage().GetContextInfo().GetQuotedMessage()
 	owner = append(owner, os.Getenv("Owner_Number"))
-	owner = append(owner, botNum.String())
 
 	for _, own := range owner {
 		if own == mess.Info.Sender.ToNonAD().String() {
@@ -52,6 +50,10 @@ func NewSmsg(mess *events.Message, sock *NewClientImpl) *IMessage {
 		}
 	} else {
 		media = nil
+	}
+
+	if strings.HasPrefix(command, "@"+sock.WA.Store.ID.ToNonAD().User) {
+		command = strings.Trim(strings.Replace(command, "@"+sock.WA.Store.ID.ToNonAD().User, "", 1), " ")
 	}
 
 	return &IMessage{
@@ -108,12 +110,12 @@ func NewSmsg(mess *events.Message, sock *NewClientImpl) *IMessage {
 				return false
 			}
 		}(),
-		Reply: func(text string) {
-			sock.SendText(mess.Info.Chat, text, &waProto.ContextInfo{
+		Reply: func(text string, opts ...whatsmeow.SendRequestExtra) (whatsmeow.SendResponse, error) {
+			return sock.SendText(mess.Info.Chat, text, &waProto.ContextInfo{
 				StanzaId:      &mess.Info.ID,
 				Participant:   proto.String(mess.Info.Sender.String()),
 				QuotedMessage: mess.Message,
-			})
+			}, opts...)
 		},
 	}
 }
