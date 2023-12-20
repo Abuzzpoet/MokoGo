@@ -22,7 +22,7 @@ func init() {
 			}
 			key, err := client.WA.GetNewsletterInfoWithInvite(strings.Split(m.Querry, "/")[4])
 			if err != nil {
-				m.Reply("moko Tidak Tau Ya.")
+				m.Reply("Moko Tidak Tau Ya.")
 				return
 			}
 

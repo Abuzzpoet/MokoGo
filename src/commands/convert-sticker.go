@@ -13,6 +13,7 @@ func init() {
 		Tags:     "convert",
 		IsPrefix: true,
 		IsMedia:  true,
+		IsWaitt:  true,
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			data, _ := client.WA.Download(m.Media)
 

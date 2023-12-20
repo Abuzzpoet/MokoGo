@@ -12,7 +12,7 @@ func init() {
 		As:       []string{"setmode"},
 		Tags:     "owner",
 		IsPrefix: true,
-		IsOwner:  true,
+		IsOwner: true,
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			if m.Querry == "public" {
 				helpers.Public = true
