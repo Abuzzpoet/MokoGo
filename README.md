@@ -1,7 +1,7 @@
 # MokoGo
 
 <div align="center">
-  <img src="./static/logo.jpg" width="30%" alt="Logo Moko"><br>
+  <img src="./static/image/logo.jpg" width="30%" alt="Logo Moko"><br>
   <a href="#"><img alt="MokoGo" src="https://img.shields.io/badge/MokoGo-blue?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a><br>
   <a href="https://github.com/Abuzzpoet/MokoGo/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Abuzzpoet/MokoGo?style=flat-square"></a>
   <a href="https://github.com/Abuzzpoet/MokoGo/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/Abuzzpoet/MokoGo?style=flat-square"></a>
