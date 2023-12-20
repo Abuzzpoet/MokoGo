@@ -47,31 +47,32 @@ func Get(c *NewClientImpl, m *IMessage) {
 
 			//Checking
 			if cmd.IsOwner && !m.IsOwner {
+			    m.Reply("Command Khusus Owner 😎")
 				continue
 			}
 
 			if cmd.IsMedia && m.Media == nil {
-				m.Reply("Media Di Butuhkan")
+				m.Reply("Media Di Butuhkan 📁")
 				continue
 			}
 
 			if cmd.IsQuerry && m.Querry == "" {
-				m.Reply("Querry Di Butuhkan")
+				m.Reply("Querry Di Butuhkan 🔎")
 				continue
 			}
 
 			if cmd.IsGroup && !m.IsGroup {
-				m.Reply("Hanya Khusus Group")
+				m.Reply("Hanya Khusus Group 👥")
 				continue
 			}
 
 			if (m.IsGroup && cmd.IsAdmin) && !m.IsAdmin {
-				m.Reply("Hanya Khusus Admin")
+				m.Reply("Hanya Khusus Admin 👤")
 				continue
 			}
 
 			if cmd.IsWaitt {
-				m.Reply("Tunggu Sebentar Ya")
+				m.Reply("Tunggu Sebentar Ya ⏳")
 			}
 
 			cmd.Exec(c, m)
