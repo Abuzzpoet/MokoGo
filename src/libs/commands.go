@@ -45,7 +45,7 @@ func Get(c *NewClientImpl, m *IMessage) {
 				continue
 			}
 
-            //Checking
+			//Checking
 			if cmd.IsOwner && !m.IsOwner {
 			    m.Reply("Command Khusus Owner 😎")
 				continue
@@ -65,14 +65,19 @@ func Get(c *NewClientImpl, m *IMessage) {
 				m.Reply("Hanya Khusus Group 👥")
 				continue
 			}
-			
+
 			if cmd.IsPrivate && m.IsGroup {
-				m.Reply("Hanya Khusus Private ")
+				m.Reply("Hanya Khusus Private ❗")
 				continue
 			}
 
 			if (m.IsGroup && cmd.IsAdmin) && !m.IsAdmin {
 				m.Reply("Hanya Khusus Admin 👤")
+				continue
+			}
+
+			if (m.IsGroup && cmd.IsBotAdmin) && !m.IsBotAdmin {
+				m.Reply("Jadikan Bot Sebagai Admin ❗")
 				continue
 			}
 
