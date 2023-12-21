@@ -3,7 +3,7 @@ package commands
 import (
 	"context"
 	"fmt"
-	"mao/src/libs"
+	"moko/src/libs"
 	"os"
 	"regexp"
 	"strings"
