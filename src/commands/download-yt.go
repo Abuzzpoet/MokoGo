@@ -80,7 +80,7 @@ func init() {
 				}
 				caption += "*Quality:* " + yt.Link.Video[0].Quality
 				caption += "\n*Size:* " + yt.Link.Video[0].Size
-				caption += "\n.*Format:* " + yt.Link.Video[0].Format
+				caption += "\n*Format:* " + yt.Link.Video[0].Format
 				client.SendVideo(m.From, bytes, caption, m.ID)
 			}
 		},
