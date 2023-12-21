@@ -3,7 +3,7 @@ package commands
 import (
 	"context"
 	"fmt"
-	"moko/src/libs"
+	"mao/src/libs"
 	"os"
 	"regexp"
 	"strings"
@@ -86,7 +86,7 @@ func init() {
 								panic(err)
 							}
 
-							res, _ := m.Reply("Code Kamu : " + code + "\n\nExpired : 2 menit")
+							res, _ := m.Reply("Code Pairing Kamu: *" + code + "*\n\n• *Otomatis*\n1. Klik Notifikasi (Jika ada)\n2. Masukan Kode Pairing\n3. Ketuk Konfirmasi\n\n• *Manual*\n1. Ketuk Titik Tiga Dipojok Kanan Atas\n2. Pilih Perangkat Tertaut\n3. Pilih Tautkan Nomor Telepon\n4. Masukan Kode Pairing\n5. Ketuk Konfirmasi\n\n• *Expired*: 2 menit")
 							go func() {
 								for range time.Tick(2 * time.Minute) {
 									if isConnect {
@@ -94,7 +94,7 @@ func init() {
 									}
 									conn.Disconnect()
 									conn.Logout()
-									client.DeleteMsg(m.From, res.ID, true)
+									//client.DeleteMsg(m.From, res.ID, true)
 									m.Reply("Expired")
 									os.Remove(sesiPath)
 									delete(jRoom, m.Sender.ToNonAD().String())
@@ -130,16 +130,9 @@ func init() {
 									ms := evt.Timeout.Microseconds() / 1000000
 									minutes := ms / 60
 									remainingSeconds := ms - minutes*60
-									res, _ := client.SendImage(m.From, png, fmt.Sprintf("Expired : %v menit, %v detik\nLimit Sisa : %v/%v\n\nSilahkan Di Scan ya...", minutes, remainingSeconds, limit, 3), nil)
+									client.SendImage(m.From, png, fmt.Sprintf("Expired : %v menit, %v detik\nLimit Sisa : %v/%v\n\nSilahkan Di Scan ya...", minutes, remainingSeconds, limit, 3), nil)
 									limit--
 									i++
-									duration := evt.Timeout / time.Second
-									go func() {
-										for range time.Tick(duration * time.Second) {
-											client.DeleteMsg(m.From, res.ID, true)
-											break
-										}
-									}()
 									jRoom[m.Sender.ToNonAD().String()] = IJadibot{
 										Type:   "Qr",
 										Number: m.Sender.User,
@@ -195,7 +188,7 @@ func init() {
 					m.Reply("Maaf, Limit Jadi Bot Sudah Habis")
 				}
 
-				res, _ := m.Reply("Silahkan Pilih Mode Login :\n\n1. Pairing (Nomor)\n2. Qr\n\n*NT:* Balas Pesan ini, Dan *KETIK NOMORNYA*, Untuk Memilih Ya.", whatsmeow.SendRequestExtra{
+				m.Reply("Silahkan Pilih Mode Login :\n\n1. Pairing (Nomor)\n2. Qr\n\n*NT:* Balas Pesan ini, Dan *KETIK NOMORNYA*, Untuk Memilih Ya.", whatsmeow.SendRequestExtra{
 					ID: client.GenerateMessageID("JBOT"),
 				})
 
@@ -203,7 +196,7 @@ func init() {
 				for range time.Tick(3 * time.Minute) {
 					if queque[m.Sender.ToNonAD().String()] {
 						delete(queque, m.Sender.ToNonAD().String())
-						client.DeleteMsg(m.From, res.ID, true)
+						//client.DeleteMsg(m.From, res.ID, true)
 						break
 					}
 				}
