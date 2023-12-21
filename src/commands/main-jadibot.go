@@ -86,7 +86,7 @@ func init() {
 								panic(err)
 							}
 
-							res, _ := m.Reply("Code Pairing Kamu: *" + code + "*\n\n• *Otomatis*\n1. Klik Notifikasi (Jika ada)\n2. Masukan Kode Pairing\n3. Ketuk Konfirmasi\n\n• *Manual*\n1. Ketuk Titik Tiga Dipojok Kanan Atas\n2. Pilih Perangkat Tertaut\n3. Pilih Tautkan Nomor Telepon\n4. Masukan Kode Pairing\n5. Ketuk Konfirmasi\n\n• *Expired*: 2 menit")
+							m.Reply("Code Pairing Kamu: *" + code + "*\n\n• *Otomatis*\n1. Klik Notifikasi (Jika ada)\n2. Masukan Kode Pairing\n3. Ketuk Konfirmasi\n\n• *Manual*\n1. Ketuk Titik Tiga Dipojok Kanan Atas\n2. Pilih Perangkat Tertaut\n3. Pilih Tautkan Nomor Telepon\n4. Masukan Kode Pairing\n5. Ketuk Konfirmasi\n\n• *Expired*: 2 menit")
 							go func() {
 								for range time.Tick(2 * time.Minute) {
 									if isConnect {
