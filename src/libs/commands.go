@@ -47,7 +47,6 @@ func Get(c *NewClientImpl, m *IMessage) {
 
 			//Checking
 			if cmd.IsOwner && !m.IsOwner {
-			    m.Reply("Command Khusus Owner 😎")
 				continue
 			}
 
