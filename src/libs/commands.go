@@ -44,9 +44,12 @@ func Get(c *NewClientImpl, m *IMessage) {
 			if !cmdWithPref && !cmdWithoutPref {
 				continue
 			}
+//Read Command
+			//c.WA.MarkRead([]string{m.StanzaId}, time.Now(), m.From, m.Sender)
 
 			//Checking
 			if cmd.IsOwner && !m.IsOwner {
+			  m.Reply("Hanya Khusus Owner 😎")
 				continue
 			}
 
