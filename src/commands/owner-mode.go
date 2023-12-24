@@ -17,9 +17,11 @@ func init() {
 			if m.Querry == "public" {
 				helpers.Public = true
 				m.Reply("Public Mode: " + strconv.FormatBool(helpers.Public))
-			} else {
+			} else if m.Querry == "self" {
 				helpers.Public = false
 				m.Reply("Public Mode: " + strconv.FormatBool(helpers.Public))
+			} else {
+				m.Reply("Public Mode: " + strconv.FormatBool(helpers.Public))   
 			}
 		},
 	})

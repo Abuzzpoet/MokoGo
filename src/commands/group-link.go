@@ -17,9 +17,9 @@ func init() {
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			resp, err := client.WA.GetGroupInviteLink(m.From, false)
 			if err != nil {
-				m.Reply("Gagal mendapatkan link group.")
+				m.Reply("Moko gagal mendapatkan link group ❌")
 			} else {
-				m.Reply(fmt.Sprintf("Link group: %s", resp))
+				m.Reply(fmt.Sprintf("Berhasil mendapatkan link group: %s ✅", resp))
 			}
 		},
 	})

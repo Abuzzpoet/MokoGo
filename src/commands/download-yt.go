@@ -49,7 +49,7 @@ func init() {
 				return
 			}
 
-			caption := fmt.Sprintf("*Title*: %s\n*Author*: %s\n*Duration*: %s\n", yt.Info.Title, yt.Info.Author, yt.Info.Duration)
+			caption := fmt.Sprintf("🏷️ *Title*: %s\n👤 *Author*: %s\n📝 *Duration*: %s\n", yt.Info.Title, yt.Info.Author, yt.Info.Duration)
 
 			if reg, _ := regexp.MatchString(`(ytmp3|play)`, m.Command); reg {
 				build, err := yt.Link.Audio[0].Url()
@@ -63,9 +63,9 @@ func init() {
 					m.Reply(err.Error())
 					return
 				}
-				caption += "*Quality:* " + yt.Link.Audio[0].Quality
-				caption += "\n*Size:* " + yt.Link.Audio[0].Size
-				caption += "\n*Format:* " + yt.Link.Audio[0].Format
+				caption += "🔖 *Quality:* " + yt.Link.Audio[0].Quality
+				caption += "\n📥 *Size:* " + yt.Link.Audio[0].Size
+				caption += "\n🔎 *Format:* " + yt.Link.Audio[0].Format
 				client.SendDocument(m.From, bytes, fmt.Sprintf("%s.mp3", yt.Info.Title), caption, m.ID)
 			} else {
 				build, err := yt.Link.Video[0].Url()
@@ -78,9 +78,9 @@ func init() {
 					m.Reply(err.Error())
 					return
 				}
-				caption += "*Quality:* " + yt.Link.Video[0].Quality
-				caption += "\n*Size:* " + yt.Link.Video[0].Size
-				caption += "\n*Format:* " + yt.Link.Video[0].Format
+				caption += "🔖 *Quality:* " + yt.Link.Video[0].Quality
+				caption += "\n📥 *Size:* " + yt.Link.Video[0].Size
+				caption += "\n🔎 *Format:* " + yt.Link.Video[0].Format
 				client.SendVideo(m.From, bytes, caption, m.ID)
 			}
 		},

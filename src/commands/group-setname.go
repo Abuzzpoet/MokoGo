@@ -18,10 +18,10 @@ func init() {
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			err := client.WA.SetGroupName(m.From, m.Querry)
 			if err != nil {
-				m.Reply("Gagal mengubah nama group")
+				m.Reply("Moko gagal mengubah nama group ❌")
 				return
 			}
-			m.Reply("Berhasil mengubah nama group")
+			m.Reply("Berhasil mengubah nama group ✅")
 		},
 	})
 }

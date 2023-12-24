@@ -55,37 +55,37 @@ func init() {
 				}
 			}
 			if ujid == nil || len(ujid) == 0 {
-				m.Reply("Tag atau balas pesan seseorang yang mau dijadikan admin/dijatuhkan dari admin.")
+				m.Reply("Tag atau balas pesan seseorang yang mau dijadikan admin/dijatuhkan dari admin ❗")
 				return
 			}
 
 			if regexp.MustCompile(`demote|dm`).MatchString(m.Command) {
 				resp, err := client.WA.UpdateGroupParticipants(m.From, ujid, whatsmeow.ParticipantChangeDemote)
 				if err != nil {
-					m.Reply("Gagal menurunkan admin")
+					m.Reply("Gagal menurunkan admin ❌")
 					return
 				}
 
 				for _, item := range resp {
 					if item.Error == 404 {
-						m.Reply("Mungkin user tersebut sudah tidak ada di grup ini.")
+						m.Reply("Mungkin user tersebut sudah tidak ada di grup ini ❗")
 					} else if !item.IsAdmin {
-						m.Reply("Sukses menurunkan admin")
+						m.Reply("Sukses menurunkan admin ✅")
 					}
 				}
 			} else {
 				resp, err := client.WA.UpdateGroupParticipants(m.From, ujid, whatsmeow.ParticipantChangePromote)
 				if err != nil {
-					m.Reply("Gagal menjadikan admin")
+					m.Reply("Gagal menjadikan admin ❌")
 					return
 				}
 
 				for _, item := range resp {
 					if item.IsAdmin {
-						m.Reply("Sukses menjadikan admin")
+						m.Reply("Sukses menjadikan admin ✅")
 					}
 					if item.Error == 404 {
-						m.Reply("Mungkin user tersebut sudah tidak ada di grup ini.")
+						m.Reply("Mungkin user tersebut sudah tidak ada di grup ini ❗")
 					}
 				}
 			}

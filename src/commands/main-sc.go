@@ -11,7 +11,7 @@ func init() {
 		Tags:     "main",
 		IsPrefix: true,
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
-			m.Reply("*Sc ini Private*\nBase yg dipake : https://github.com/fckvania/MaoGo")
+			m.Reply("*Sc ini Private*\n🔎 Base yg dipake : https://github.com/fckvania/MaoGo")
 		},
 	})
 }

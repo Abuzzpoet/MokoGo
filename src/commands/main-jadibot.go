@@ -64,7 +64,7 @@ func init() {
 						}
 					})
 					conn.PrePairCallback = func(jid types.JID, platform, businessName string) bool {
-						m.Reply("Success Login ID :\n\nNumber: " + jid.User + "\nPlatform: " + platform + "\nBusinessName: " + businessName)
+						m.Reply("*• Success Login ID*\n\n🕵️ Number: " + jid.User + "\n📌 Platform: " + platform + "\n🪪 BusinessName: " + businessName)
 						isConnect = true
 						jRoom[m.Sender.ToNonAD().String()] = IJadibot{
 							Client: conn,
@@ -86,7 +86,7 @@ func init() {
 								panic(err)
 							}
 
-							m.Reply("Code Pairing Kamu: *" + code + "*\n\n• *Otomatis*\n1. Klik Notifikasi (Jika ada)\n2. Masukan Kode Pairing\n3. Ketuk Konfirmasi\n\n• *Manual*\n1. Ketuk Titik Tiga Dipojok Kanan Atas\n2. Pilih Perangkat Tertaut\n3. Pilih Tautkan Nomor Telepon\n4. Masukan Kode Pairing\n5. Ketuk Konfirmasi\n\n• *Expired*: 2 menit")
+							m.Reply("📝 Code Pairing Kamu: *" + code + "*\n\n• *Otomatis*\n1. Klik Notifikasi (Jika ada)\n2. Masukan Kode Pairing\n3. Ketuk Konfirmasi\n\n• *Manual*\n1. Ketuk Titik Tiga Dipojok Kanan Atas\n2. Pilih Perangkat Tertaut\n3. Pilih Tautkan Nomor Telepon\n4. Masukan Kode Pairing\n5. Ketuk Konfirmasi\n\n• *Expired*: 2 menit")
 							go func() {
 								for range time.Tick(2 * time.Minute) {
 									if isConnect {
@@ -130,7 +130,7 @@ func init() {
 									ms := evt.Timeout.Microseconds() / 1000000
 									minutes := ms / 60
 									remainingSeconds := ms - minutes*60
-									client.SendImage(m.From, png, fmt.Sprintf("Expired : %v menit, %v detik\nLimit Sisa : %v/%v\n\nSilahkan Di Scan ya...", minutes, remainingSeconds, limit, 3), nil)
+									client.SendImage(m.From, png, fmt.Sprintf("• *Limit Sisa* : %v/%v\n\n• *Tutorial*\n1. Ketuk Titik Tiga Dipojok Kanan Atas\n2. Pilih Perangkat Tertaut\n3. Masukkan Sandi (Jika ada)\n4. Scan Barcode (Yg Mau Dijadiin Bot)\n\n• *Expired* : %v menit, %v detik\n_Silahkan Di Scan ya..._", minutes, remainingSeconds, limit, 3), nil)
 									limit--
 									i++
 									jRoom[m.Sender.ToNonAD().String()] = IJadibot{
@@ -165,7 +165,7 @@ func init() {
 				os.Remove(fmt.Sprintf(".sesi/%s.db", m.Sender.ToNonAD().String()))
 			} else {
 				if m.IsBot {
-					m.Reply("Maaf, Bot Tidak Bisa Menggunakan Perintah Ini")
+					m.Reply("Maaf, Moko Bot Tidak Bisa Menggunakan Perintah Ini")
 					return
 				}
 
@@ -175,7 +175,7 @@ func init() {
 				}
 
 				if queque[m.Sender.ToNonAD().String()] {
-					m.Reply("Silahkan Pilih Mode Login Terlebih Dahuulu")
+					m.Reply("Silahkan Pilih Mode Login Terlebih Dahulu")
 					return
 				}
 
@@ -185,10 +185,10 @@ func init() {
 				}
 
 				if len(jRoom) > 5 {
-					m.Reply("Maaf, Limit Jadi Bot Sudah Habis")
+					m.Reply("Maaf, Limit Jadi Moko Bot Sudah Habis")
 				}
 
-				m.Reply("Silahkan Pilih Mode Login :\n\n1. Pairing (Nomor)\n2. Qr\n\n*NT:* Balas Pesan ini, Dan *KETIK NOMORNYA*, Untuk Memilih Ya.", whatsmeow.SendRequestExtra{
+				m.Reply("Silahkan Pilih Mode Login :\n\n1. Pairing (Nomor)\n2. Qr\n\n*NT:* Balas/Reply Pesan ini, Dan *KETIK NOMORNYA*, Untuk Memilih Ya.", whatsmeow.SendRequestExtra{
 					ID: client.GenerateMessageID("JBOT"),
 				})
 

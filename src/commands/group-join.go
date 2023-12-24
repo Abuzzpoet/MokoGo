@@ -17,10 +17,10 @@ func init() {
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			gid, err := client.WA.JoinGroupWithLink(m.Querry)
 			if err != nil {
-				m.Reply("Moko tidak bisa gabung ke group itu.")
+				m.Reply("Moko tidak bisa gabung ke group itu ❌")
 			} else {
 				resp, _ := client.WA.GetGroupInfo(gid)
-				m.Reply(fmt.Sprintf("Moko berhasil gabung ke group %s", resp.Name))
+				m.Reply(fmt.Sprintf("Moko berhasil gabung ke group %s ✅", resp.Name))
 			}
 		},
 	})

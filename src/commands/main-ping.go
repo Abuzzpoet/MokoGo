@@ -13,7 +13,7 @@ func init() {
 		IsPrefix: true,
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			start := time.Now()
-			m.Reply("Speed: " + time.Since(start).String())
+			m.Reply("⚡ Speed: " + time.Since(start).String())
 		},
 	})
 }

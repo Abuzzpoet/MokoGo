@@ -23,11 +23,11 @@ func init() {
 
 			key, err := client.WA.GetNewsletterInfoWithInvite(strings.Split(m.Querry, "/")[4])
 			if err != nil {
-				m.Reply("Moko Tidak Tau Ya.")
+				m.Reply("Moko Tidak Tau Ya ❗")
 				return
 			}
 
-			m.Reply(fmt.Sprintf("*Channel Information*\n*Link:* %s\n*ID:* %s\n*Name:* %v\n*Followers:* %v\n\n*Description:* %v\n*Create At:* %v", m.Querry, key.ID, key.ThreadMeta.Name.Text, key.ThreadMeta.SubscriberCount, key.ThreadMeta.Description.Text, key.ThreadMeta.CreationTime))
+			m.Reply(fmt.Sprintf("🔎 *Channel Information*\n📌 *Link:* %s\n🏷️ *ID:* %s\n🔖 *Name:* %v\n👥 *Followers:* %v\n\n📝 *Description:* %v\n*Create At:* %v", m.Querry, key.ID, key.ThreadMeta.Name.Text, key.ThreadMeta.SubscriberCount, key.ThreadMeta.Description.Text, key.ThreadMeta.CreationTime))
 		},
 	})
 }

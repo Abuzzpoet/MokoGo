@@ -17,7 +17,7 @@ func init() {
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			err := client.WA.LeaveGroup(m.From)
 			if err != nil {
-				m.Reply("Moko gagal keluar dari group ini.")
+				m.Reply("Moko gagal keluar dari group ini ❌")
 				fmt.Println(err.Error())
 			}
 		},
