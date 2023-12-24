@@ -18,7 +18,7 @@ ___
 ## Cara Penggunaan Dan Penginstalan
 
 1. **Langkah 1:** Unduh atau clone repositori ini.
-3. **Langkah 2:** Instal Golang [disini](https://go.dev/doc/install)  >= 1.17.
+3. **Langkah 2:** Instal Golang [disini](https://go.dev/doc/install)  >= 1.20
 4. **Langkah 3:** Ubah file `.env` dengan informasi yang diperlukan (seperti jid owner bot dan nama bot).
 5. **Langkah 4:** Jalankan bot dengan perintah:
 ```shell
