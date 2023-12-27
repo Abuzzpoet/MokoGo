@@ -5,9 +5,12 @@ import (
 	"fmt"
 	"moko/src/helpers"
 	"moko/src/libs"
+	"net/http"
 	"os"
 	"os/signal"
+	"path"
 	"syscall"
+	"text/template"
 
 	_ "moko/src/commands"
 
@@ -22,6 +25,11 @@ import (
 	waLog "go.mau.fi/whatsmeow/util/log"
 	"google.golang.org/protobuf/proto"
 )
+
+type Template struct {
+	Nama   string
+	Status bool
+}
 
 func init() {
 	gotenv.Load()
@@ -93,6 +101,8 @@ func main() {
 		log.Info("Connected Socket")
 	}
 
+	go HttpStatic(client)
+
 	// Listen to Ctrl+C (you can also do something else that prevents the program from exiting)
 	c := make(chan os.Signal)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
@@ -114,4 +124,28 @@ func questLogin() int {
 	}
 
 	return input
+}
+
+func HttpStatic(client *whatsmeow.Client) {
+	var port string = os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	var filepath = path.Join("static/views", "index.html")
+	var tmpl, _ = template.ParseFiles(filepath)
+	http.HandleFunc("/index", func(w http.ResponseWriter, r *http.Request) {
+		data := Template{
+			Nama:   client.Store.PushName,
+			Status: client.IsConnected(),
+		}
+		if err := tmpl.Execute(w, data); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+	})
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/index", http.StatusTemporaryRedirect)
+	})
+	fmt.Println("server started at localhost:" + port)
+	http.ListenAndServe(":"+port, nil)
 }
