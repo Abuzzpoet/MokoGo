@@ -15,6 +15,7 @@ func init() {
 		IsWaitt:  true,
 		IsAdmin:  true,
 		IsGroup:  true,
+		IsBotAdmin: true,
 		Exec: func(client *libs.NewClientImpl, m *libs.IMessage) {
 			err := client.WA.SetGroupLocked(m.From, strings.Contains(m.Command, "close"))
 			if err != nil {
